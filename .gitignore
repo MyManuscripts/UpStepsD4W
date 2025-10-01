@@ -1,0 +1,27 @@
+### IntelliJ IDEA ###
+.idea/
+*.iml
+
+### Build output ###
+out/
+target/
+build/
+
+### OS specific ###
+.DS_Store
+Thumbs.db
+
+### Java ###
+*.class
+*.jar
+*.war
+*.ear
+
+### Logs and temp ###
+logs/
+temp/
+*.log
+
+### Environment ###
+.env
+*.env.local
