@@ -1,8 +1,7 @@
 import java.util.Scanner;
 import java.util.Set;
 
-public class Main {
-
+public class UpdateSteps {
     private static final Set<Integer> GROUP_TO_4773 = Set.of(4336, 4477, 4599, 4690);
 
     private static final Set<Integer> GROUP_TO_5437 = Set.of(4773, 4842, 4904, 4965, 5029,
@@ -43,4 +42,5 @@ public class Main {
 
 
     }
+
 }
