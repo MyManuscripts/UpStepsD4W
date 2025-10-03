@@ -39,6 +39,20 @@ public class UpdateSteps extends JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
 
+        // Иконка
+        try {
+            ImageIcon icon = new ImageIcon(getClass().getResource("resources/up.png"));
+            if (icon.getIconWidth() > 0) { // Проверяем, что иконка загружена
+                setIconImage(icon.getImage());
+                System.out.println("✅ Иконка успешно загружена!");
+            } else {
+                System.err.println("❌ Иконка загружена, но имеет размер 0x0");
+            }
+        } catch (Exception e) {
+            System.err.println("❌ Ошибка загрузки иконки:");
+            e.printStackTrace();
+        }
+
 
         // Создаём компоненты
         versionField = new JTextField(4); // 4 символа
@@ -87,13 +101,6 @@ public class UpdateSteps extends JFrame {
         buildButton.addActionListener(e -> buildRoute());
         getRootPane().setDefaultButton(buildButton);
 
-
-        /*Scanner sc = new Scanner(System.in);
-        System.out.println("Введите номер сборки: ");
-        int x = sc.nextInt();
-        sc.close();
-
-        buildRoute(x); */
     }
 
 
