@@ -1,34 +1,25 @@
 @echo off
-chcp 65001 >nul
 cls
 echo [INFO] Сборка Java-приложения...
 
-REM Удаляем старую папку build, если есть
-if exist build rmdir /s /q build
+REM Создаём папку build, если её нет
+if not exist build mkdir build
 
-REM Создаём папку build
-mkdir build
-
-REM Компилируем с release 25 (совместимо с вашей JDK)
-javac --release 25 -d build src/UpdateSteps.java
+REM Компилируем
+javac --release 24 -d build src\UpdateSteps.java
 if errorlevel 1 (
-    echo [ERROR] Ошибка компиляции!
+    echo ❌ Ошибка компиляции!
     pause
     exit /b 1
 )
 
-REM Копируем ресурсы в build/resources/
-if not exist "build\resources" mkdir "build\resources"
-copy /Y "src\resources\up.png" "build\resources\up.png" >nul
 
-REM Собираем JAR в корне проекта
-jar cfm UpdateSteps.jar MANIFEST.MF -C build .
+REM Копируем ресурсы в build/
+if not exist build/resources mkdir build/resources
+copy /Y src/resources/up.png build/resources/up.png >nul
 
-if errorlevel 1 (
-    echo [ERROR] Ошибка при создании JAR!
-    pause
-    exit /b 1
-)
+REM Собираем JAR ВНУТРИ папки build
+jar cfm build\UpdateSteps.jar MANIFEST.MF -C build .
 
 echo [OK] Сборка завершена: UpdateSteps.jar создан.
 pause

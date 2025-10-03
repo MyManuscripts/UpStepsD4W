@@ -7,6 +7,15 @@ out/
 target/
 build/
 
+# Build directories
+build/
+dist/
+target/
+out/
+
+# Compiled Java files
+*.class
+
 ### OS specific ###
 .DS_Store
 Thumbs.db
@@ -16,6 +25,13 @@ Thumbs.db
 *.jar
 *.war
 *.ear
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
 
 ### Logs and temp ###
 logs/
